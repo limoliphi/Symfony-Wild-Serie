@@ -43,33 +43,97 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'id' => true,
                         'columnName' => 'id',
                     ],
-                    'Program' => [
-                        'fieldName' => 'Program',
+                    'title' => [
+                        'fieldName' => 'title',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'title',
+                    ],
+                    'summary' => [
+                        'fieldName' => 'summary',
+                        'type' => 'text',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'summary',
+                    ],
+                    'poster' => [
+                        'fieldName' => 'poster',
                         'type' => 'string',
                         'scale' => 0,
                         'length' => 255,
                         'unique' => false,
                         'nullable' => false,
                         'precision' => 0,
-                        'columnName' => 'program',
+                        'columnName' => 'poster',
                     ],
                 ],
             ],
             'fieldNames' => [
                 [
                     'id' => 'id',
-                    'program' => 'Program',
+                    'title' => 'title',
+                    'summary' => 'summary',
+                    'poster' => 'poster',
                 ],
             ],
             'columnNames' => [
                 [
                     'id' => 'id',
-                    'Program' => 'program',
+                    'title' => 'title',
+                    'summary' => 'summary',
+                    'poster' => 'poster',
                 ],
             ],
             'table' => [
                 [
                     'name' => 'program',
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'category' => [
+                        'fieldName' => 'category',
+                        'joinColumns' => [
+                            [
+                                'name' => 'category_id',
+                                'unique' => false,
+                                'nullable' => false,
+                                'onDelete' => null,
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => null,
+                        'targetEntity' => 'App\\Entity\\Category',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\Program',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'category_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'category_id' => 'category_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'category_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
                 ],
             ],
             'idGenerator' => [

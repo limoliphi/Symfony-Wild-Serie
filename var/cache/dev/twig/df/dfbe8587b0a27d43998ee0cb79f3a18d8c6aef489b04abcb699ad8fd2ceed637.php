@@ -69,7 +69,9 @@ class __TwigTemplate_6d15bdc930c00efd5038b460dbbf9efd3f4bfb606eb6b4e50a927f80aea
         $this->displayBlock('javascripts', $context, $blocks);
         // line 19
         echo "</body>
-</html>";
+</html>
+
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -146,7 +148,7 @@ class __TwigTemplate_6d15bdc930c00efd5038b460dbbf9efd3f4bfb606eb6b4e50a927f80aea
 
     public function getDebugInfo()
     {
-        return array (  128 => 17,  121 => 16,  109 => 15,  99 => 8,  92 => 7,  79 => 6,  71 => 19,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 7,  51 => 6,  44 => 1,);
+        return array (  130 => 17,  123 => 16,  111 => 15,  101 => 8,  94 => 7,  81 => 6,  71 => 19,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 7,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -170,6 +172,8 @@ class __TwigTemplate_6d15bdc930c00efd5038b460dbbf9efd3f4bfb606eb6b4e50a927f80aea
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
 </body>
-</html>", "base.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/base.html.twig");
+</html>
+
+", "base.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/base.html.twig");
     }
 }
