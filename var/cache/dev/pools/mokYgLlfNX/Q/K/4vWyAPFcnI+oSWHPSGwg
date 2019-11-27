@@ -72,6 +72,27 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'name' => 'category',
                 ],
             ],
+            'associationMappings' => [
+                [
+                    'programs' => [
+                        'fieldName' => 'programs',
+                        'mappedBy' => 'category',
+                        'targetEntity' => 'App\\Entity\\Program',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Category',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                ],
+            ],
             'idGenerator' => [
                 $o[1],
             ],

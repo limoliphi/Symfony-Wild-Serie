@@ -82,7 +82,7 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
             <h1 class=\"mt-0\">";
         // line 10
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
-        echo "</h1>
+        echo "</h1></a>
             <p>";
         // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "summary", [], "any", false, false, false, 11), "html", null, true);
@@ -91,11 +91,30 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
         echo "</p>
+            <div>
+                ";
+        // line 14
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["seasons"]) || array_key_exists("seasons", $context) ? $context["seasons"] : (function () { throw new RuntimeError('Variable "seasons" does not exist.', 14, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["season"]) {
+            // line 15
+            echo "                    <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_season", ["id" => twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 15)]), "html", null, true);
+            echo "\">Saison ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 15), "html", null, true);
+            echo "</a>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['season'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "            </div>
         </div>
     </div>
 
     <a href=\"";
-        // line 16
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
         echo "\">
         Retour à l'accueil
@@ -119,7 +138,7 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
 
     public function getDebugInfo()
     {
-        return array (  99 => 16,  92 => 12,  88 => 11,  84 => 10,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
+        return array (  118 => 21,  112 => 17,  101 => 15,  97 => 14,  92 => 12,  88 => 11,  84 => 10,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -133,9 +152,14 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
     <div class=\"media\">
         <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
         <div class=\"media-body\">
-            <h1 class=\"mt-0\">{{ program.title }}</h1>
+            <h1 class=\"mt-0\">{{ program.title }}</h1></a>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
+            <div>
+                {% for season in seasons %}
+                    <a href=\"{{ path('wild_season', { 'id': season.id}) }}\">Saison {{ season.id }}</a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

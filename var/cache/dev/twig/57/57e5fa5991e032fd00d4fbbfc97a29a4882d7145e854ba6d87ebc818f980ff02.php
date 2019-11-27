@@ -92,17 +92,21 @@ class __TwigTemplate_2a86104f25f934035b038aee8145b5b5ceabdcb6d619ee5593d03b1ba7d
         foreach ($context['_seq'] as $context["_key"] => $context["program"]) {
             // line 8
             echo "        <div>
-            <h2>";
+            <a href=\"";
             // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 9), "html", null, true);
-            echo " / ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 9), "html", null, true);
-            echo " - Catégorie : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 9), "name", [], "any", false, false, false, 9), "html", null, true);
-            echo "</h2>
-            <p>";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_replace_filter(twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 9)), [" " => "-"])]), "html", null, true);
+            echo "\">
+            <h2>";
             // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 10), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 10), "html", null, true);
+            echo " / ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 10), "html", null, true);
+            echo " - Catégorie : ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 10), "name", [], "any", false, false, false, 10), "html", null, true);
+            echo "</h2></a>
+            <p>";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 11), "html", null, true);
             echo "</p>
         </div>
     ";
@@ -117,14 +121,14 @@ class __TwigTemplate_2a86104f25f934035b038aee8145b5b5ceabdcb6d619ee5593d03b1ba7d
             }
         }
         if (!$context['_iterated']) {
-            // line 13
+            // line 14
             echo "        Aucune série trouvée.
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['program'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 15
+        // line 16
         echo "    <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\">
@@ -148,7 +152,7 @@ class __TwigTemplate_2a86104f25f934035b038aee8145b5b5ceabdcb6d619ee5593d03b1ba7d
 
     public function getDebugInfo()
     {
-        return array (  128 => 15,  121 => 13,  105 => 10,  97 => 9,  94 => 8,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  132 => 16,  125 => 14,  109 => 11,  101 => 10,  97 => 9,  94 => 8,  76 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -161,7 +165,8 @@ class __TwigTemplate_2a86104f25f934035b038aee8145b5b5ceabdcb6d619ee5593d03b1ba7d
     <h1>Toutes les séries de la table program : </h1>
     {% for program in programs %}
         <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <a href=\"{{ path('wild_show', { 'slug': program.title|lower|replace({' ':'-'})}) }}\">
+            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2></a>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}

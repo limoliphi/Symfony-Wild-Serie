@@ -16,15 +16,19 @@ return [
         0 => '{^(?'
                 .'|/_error/(\\d+)(?:\\.([^/]++))?(*:35)'
                 .'|/wild/(?'
-                    .'|show(?:/([a-z0-9-]+))?(*:73)'
-                    .'|category/([^/]++)(*:97)'
+                    .'|s(?'
+                        .'|how(?:/([a-z0-9-]+))?(*:76)'
+                        .'|eason/([^/]++)(*:97)'
+                    .')'
+                    .'|category/([^/]++)(*:122)'
                 .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
         35 => [[['_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        73 => [[['_route' => 'wild_show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
-        97 => [
+        76 => [[['_route' => 'wild_show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
+        97 => [[['_route' => 'wild_season', '_controller' => 'App\\Controller\\WildController::showBySeason'], ['id'], null, null, false, true, null]],
+        122 => [
             [['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
