@@ -79,46 +79,51 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 8, $this->source); })()), "title", [], "any", false, false, false, 8), "html", null, true);
         echo " poster\">
         <div class=\"media-body\">
-            <h1 class=\"mt-0\">";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
-        echo "</h1></a>
-            <p>";
-        // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "summary", [], "any", false, false, false, 11), "html", null, true);
-        echo "</p>
-            <p>Categorie : ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
-        echo "</p>
             <div>
+                <h1 class=\"mt-0\">";
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "title", [], "any", false, false, false, 11), "html", null, true);
+        echo "</h1>
+                <p>";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "summary", [], "any", false, false, false, 12), "html", null, true);
+        echo "</p>
+                <p>Categorie : ";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 13, $this->source); })()), "category", [], "any", false, false, false, 13), "name", [], "any", false, false, false, 13), "html", null, true);
+        echo "</p>
+            </div>
+            <div class=\"container\">
                 ";
-        // line 14
+        // line 16
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["seasons"]) || array_key_exists("seasons", $context) ? $context["seasons"] : (function () { throw new RuntimeError('Variable "seasons" does not exist.', 14, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["seasons"]) || array_key_exists("seasons", $context) ? $context["seasons"] : (function () { throw new RuntimeError('Variable "seasons" does not exist.', 16, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["season"]) {
-            // line 15
+            // line 17
             echo "                    <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_season", ["id" => twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 15)]), "html", null, true);
-            echo "\">Saison ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 15), "html", null, true);
-            echo "</a>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_season", ["id" => twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 17)]), "html", null, true);
+            echo "\">
+                    <button type=\"button\" class=\"btn btn-outline-danger\">Découvrez la saison ";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["season"], "id", [], "any", false, false, false, 18), "html", null, true);
+            echo "</button></a>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['season'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
+        // line 20
         echo "            </div>
-        </div>
-    </div>
-
-    <a href=\"";
-        // line 21
+            <div class=\"container\">
+                <a href=\"";
+        // line 22
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
         echo "\">
-        Retour à l'accueil
-    </a>
+                    <button type=\"button\" class=\"btn btn-primary\">Vers toutes les séries</button>
+                </a>
+            </div>
+        </div>
+    </div>
 
 ";
         
@@ -138,7 +143,7 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
 
     public function getDebugInfo()
     {
-        return array (  118 => 21,  112 => 17,  101 => 15,  97 => 14,  92 => 12,  88 => 11,  84 => 10,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
+        return array (  120 => 22,  116 => 20,  108 => 18,  103 => 17,  99 => 16,  93 => 13,  89 => 12,  85 => 11,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -150,22 +155,26 @@ class __TwigTemplate_d7c5dda3a2f015b49d3cf2f8e7bf5e54b419a1497ded88fd01e26a3a549
 {% block body %}
 
     <div class=\"media\">
-        <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
+        <img class=\"align-self-start mr-3\" src=\"{{ program.poster }}\" alt=\"{{ program.title }} poster\">
         <div class=\"media-body\">
-            <h1 class=\"mt-0\">{{ program.title }}</h1></a>
-            <p>{{ program.summary }}</p>
-            <p>Categorie : {{ program.category.name }}</p>
             <div>
+                <h1 class=\"mt-0\">{{ program.title }}</h1>
+                <p>{{ program.summary }}</p>
+                <p>Categorie : {{ program.category.name }}</p>
+            </div>
+            <div class=\"container\">
                 {% for season in seasons %}
-                    <a href=\"{{ path('wild_season', { 'id': season.id}) }}\">Saison {{ season.id }}</a>
+                    <a href=\"{{ path('wild_season', { 'id': season.id}) }}\">
+                    <button type=\"button\" class=\"btn btn-outline-danger\">Découvrez la saison {{ season.id }}</button></a>
                 {% endfor %}
+            </div>
+            <div class=\"container\">
+                <a href=\"{{ path('wild_index') }}\">
+                    <button type=\"button\" class=\"btn btn-primary\">Vers toutes les séries</button>
+                </a>
             </div>
         </div>
     </div>
-
-    <a href=\"{{ path('wild_index') }}\">
-        Retour à l'accueil
-    </a>
 
 {% endblock %}", "wild/show.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/show.html.twig");
     }

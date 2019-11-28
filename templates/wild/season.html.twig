@@ -3,20 +3,17 @@
 {% block body %}
     <div>
         <h1>Saison {{ season.number }} de {{ program.title }} </h1>
-    </div>
-    <div>
         <p>Description : {{ season.description }}</p>
-    </div>
-    <div>
         <h2>Liste des épisodes</h2>
     </div>
     <div class="container-fluid">
         {% for episode in episodes %}
-            <h3> - Episode {{ episode.number }} : {{ episode.title }}</h3>
-            <p>{{ episode.synopsis }}</p>
+            <a href="{{ path('wild_episode', {'id': episode.id }) }}"><li>Episode {{ episode.number }} : {{ episode.title }}</li></a>
         {% endfor %}
     </div>
+    <div>
     <a href="{{ path('wild_show', { 'slug': program.title|lower|replace({' ':'-'})}) }}">
-        Retour
+        <button type="button" class="btn btn-primary">Retour</button>
     </a>
+    </div>
 {% endblock %}

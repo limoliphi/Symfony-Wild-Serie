@@ -56,22 +56,27 @@ class __TwigTemplate_642234cef8dc184c6c0d6e6a3a63ad4bbb09a61e39127d00ca6294a83b4
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 5
-        echo "    <h1>Bienvenue sur Wild Series!</h1>
-
-    ";
-        // line 8
-        echo "    <a href=\"";
+        echo "    <div class=\"container-fluid\">
+        <h1>Bienvenue sur Wild Series!</h1>
+        <a href=\"";
+        // line 7
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => "walking-dead"]);
         echo "\">
-        Testing show() method from WildController with a real program s slug.
-    </a>
-    <br>
-    <a href=\"";
-        // line 12
+            <button type=\"button\" class=\"btn btn-primary btn-lg\">Test de la méthode show () de WildController avec un slug
+                de programme réel.
+            </button>
+        </a>
+        <br>
+        <br>
+        <a href=\"";
+        // line 14
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
         echo "\">
-        Testing index() method from WildController to view all programs.
-    </a>
+            <button type=\"button\" class=\"btn btn-secondary btn-lg\">Test de la méthode index () de WildController pour
+                afficher tous les programmes
+            </button>
+        </a>
+    </div>
 
 ";
         
@@ -91,7 +96,7 @@ class __TwigTemplate_642234cef8dc184c6c0d6e6a3a63ad4bbb09a61e39127d00ca6294a83b4
 
     public function getDebugInfo()
     {
-        return array (  71 => 12,  63 => 8,  59 => 5,  52 => 4,  35 => 1,);
+        return array (  73 => 14,  63 => 7,  59 => 5,  52 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -100,16 +105,21 @@ class __TwigTemplate_642234cef8dc184c6c0d6e6a3a63ad4bbb09a61e39127d00ca6294a83b4
 
 
 {% block body %}
-    <h1>Bienvenue sur Wild Series!</h1>
-
-    {# templates/index.html.twig #}
-    <a href=\"{{ path('wild_show', { 'slug': \"walking-dead\" }) }}\">
-        Testing show() method from WildController with a real program s slug.
-    </a>
-    <br>
-    <a href=\"{{ path('wild_index') }}\">
-        Testing index() method from WildController to view all programs.
-    </a>
+    <div class=\"container-fluid\">
+        <h1>Bienvenue sur Wild Series!</h1>
+        <a href=\"{{ path('wild_show', { 'slug': \"walking-dead\" }) }}\">
+            <button type=\"button\" class=\"btn btn-primary btn-lg\">Test de la méthode show () de WildController avec un slug
+                de programme réel.
+            </button>
+        </a>
+        <br>
+        <br>
+        <a href=\"{{ path('wild_index') }}\">
+            <button type=\"button\" class=\"btn btn-secondary btn-lg\">Test de la méthode index () de WildController pour
+                afficher tous les programmes
+            </button>
+        </a>
+    </div>
 
 {% endblock %}
 ", "home.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/home.html.twig");
