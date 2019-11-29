@@ -13,7 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WildController extends AbstractController
 {
-    public function showByProgram($program) {
+    public function showByProgram($program)
+    {
         return $program->getSeasons();
     }
 
@@ -68,7 +69,7 @@ class WildController extends AbstractController
         $seasons = $this->showByProgram($program);
         return $this->render('wild/show.html.twig', [
             'program' => $program,
-            'slug'  => $slug,
+            'slug' => $slug,
             'seasons' => $seasons
         ]);
     }

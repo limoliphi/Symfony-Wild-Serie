@@ -12,18 +12,19 @@
                 <p>{{ program.summary }}</p>
                 <p>Categorie : {{ program.category.name }}</p>
             </div>
-            <div class="container">
+            <div>
                 {% for season in seasons %}
                     <a href="{{ path('wild_season', { 'id': season.id}) }}">
-                    <button type="button" class="btn btn-outline-danger">Découvrez la saison {{ season.id }}</button></a>
+                        <button type="button" class="btn btn-outline-danger">Découvrez la
+                            saison {{ season.id }}</button>
+                    </a>
                 {% endfor %}
-            </div>
-            <div class="container">
                 <a href="{{ path('wild_index') }}">
                     <button type="button" class="btn btn-primary">Vers toutes les séries</button>
                 </a>
             </div>
         </div>
     </div>
+
 
 {% endblock %}
