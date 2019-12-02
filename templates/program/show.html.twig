@@ -5,6 +5,15 @@
 {% block body %}
     <h1>Program</h1>
 
+    <strong>Acteur :</strong>
+    <ul>
+        {% for actor in program.actors %}
+            <li>{{ actor.name }} </li>
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
+
     <table class="table">
         <tbody>
             <tr>
@@ -25,6 +34,7 @@
             </tr>
         </tbody>
     </table>
+
 
     <a href="{{ path('program_index') }}">back to list</a>
 

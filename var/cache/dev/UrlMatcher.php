@@ -44,6 +44,7 @@ return [
                     .')'
                     .'|category/([^/]++)(*:270)'
                 .')'
+                .'|/actor/([^/]++)(*:294)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -62,8 +63,9 @@ return [
         179 => [[['_route' => 'season_delete', '_controller' => 'App\\Controller\\SeasonController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
         222 => [[['_route' => 'wild_show', 'slug' => null, '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
         244 => [[['_route' => 'wild_season', '_controller' => 'App\\Controller\\WildController::showBySeason'], ['id'], null, null, false, true, null]],
-        270 => [
-            [['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null],
+        270 => [[['_route' => 'show_category', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null]],
+        294 => [
+            [['_route' => 'show_actor', '_controller' => 'App\\Controller\\WildController::showActor'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

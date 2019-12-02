@@ -10,6 +10,7 @@ use App\Repository\SeasonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Actor;
 
 class WildController extends AbstractController
 {
@@ -139,4 +140,19 @@ class WildController extends AbstractController
             'season' => $season
         ]);
     }
+
+    /**
+     * @Route("/actor/{id}", name="show_actor")
+     * @return Response
+     */
+    public function showActor(Actor $actor): Response
+    {
+        $programs = $actor->getPrograms();
+
+        return $this->render('wild/actor.html.twig', [
+            'actor' => $actor,
+            'programs' => $programs,
+        ]);
+    }
+
 }

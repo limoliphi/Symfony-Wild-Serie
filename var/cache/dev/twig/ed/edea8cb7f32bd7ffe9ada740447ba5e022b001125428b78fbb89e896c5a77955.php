@@ -72,51 +72,78 @@ class __TwigTemplate_a944ed51c89a1bf03f75c82dd771067b87bf30ffba4d5b649fab935a885
         // line 6
         echo "    <h1>Program</h1>
 
+    <strong>Acteur :</strong>
+    <ul>
+        ";
+        // line 10
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 10, $this->source); })()), "actors", [], "any", false, false, false, 10));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
+            // line 11
+            echo "            <li>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 11), "html", null, true);
+            echo " </li>
+        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 13
+            echo "            <li>Aucun acteur pour cette série</li>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['actor'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
+        echo "    </ul>
+
     <table class=\"table\">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 21, $this->source); })()), "id", [], "any", false, false, false, 21), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Title</th>
                 <td>";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "title", [], "any", false, false, false, 16), "html", null, true);
+        // line 25
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 25, $this->source); })()), "title", [], "any", false, false, false, 25), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Summary</th>
                 <td>";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 20, $this->source); })()), "summary", [], "any", false, false, false, 20), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 29, $this->source); })()), "summary", [], "any", false, false, false, 29), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Poster</th>
                 <td>";
-        // line 24
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 24, $this->source); })()), "poster", [], "any", false, false, false, 24), "html", null, true);
+        // line 33
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 33, $this->source); })()), "poster", [], "any", false, false, false, 33), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
+
     <a href=\"";
-        // line 29
+        // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31)]), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 41, $this->source); })()), "id", [], "any", false, false, false, 41)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 33
+        // line 43
         echo twig_include($this->env, $context, "program/_delete_form.html.twig");
         echo "
 ";
@@ -137,7 +164,7 @@ class __TwigTemplate_a944ed51c89a1bf03f75c82dd771067b87bf30ffba4d5b649fab935a885
 
     public function getDebugInfo()
     {
-        return array (  120 => 33,  115 => 31,  110 => 29,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  147 => 43,  142 => 41,  137 => 39,  128 => 33,  121 => 29,  114 => 25,  107 => 21,  99 => 15,  92 => 13,  84 => 11,  79 => 10,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -148,6 +175,15 @@ class __TwigTemplate_a944ed51c89a1bf03f75c82dd771067b87bf30ffba4d5b649fab935a885
 
 {% block body %}
     <h1>Program</h1>
+
+    <strong>Acteur :</strong>
+    <ul>
+        {% for actor in program.actors %}
+            <li>{{ actor.name }} </li>
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
 
     <table class=\"table\">
         <tbody>
@@ -169,6 +205,7 @@ class __TwigTemplate_a944ed51c89a1bf03f75c82dd771067b87bf30ffba4d5b649fab935a885
             </tr>
         </tbody>
     </table>
+
 
     <a href=\"{{ path('program_index') }}\">back to list</a>
 

@@ -121,6 +121,33 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
                     <button type=\"button\" class=\"btn btn-primary\">Vers toutes les séries</button>
                 </a>
             </div>
+            <strong>Acteur :</strong>
+            <ul>
+                ";
+        // line 28
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 28, $this->source); })()), "actors", [], "any", false, false, false, 28));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
+            // line 29
+            echo "                    <li><a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_actor", ["id" => twig_get_attribute($this->env, $this->source, $context["actor"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 29), "html", null, true);
+            echo " </a></li>
+                ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 31
+            echo "                    <li>Aucun acteur pour cette série</li>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['actor'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 33
+        echo "            </ul>
         </div>
     </div>
 
@@ -143,7 +170,7 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
 
     public function getDebugInfo()
     {
-        return array (  118 => 22,  109 => 19,  103 => 17,  99 => 16,  93 => 13,  89 => 12,  85 => 11,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
+        return array (  150 => 33,  143 => 31,  133 => 29,  128 => 28,  118 => 22,  109 => 19,  103 => 17,  99 => 16,  93 => 13,  89 => 12,  85 => 11,  77 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -173,6 +200,14 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
                     <button type=\"button\" class=\"btn btn-primary\">Vers toutes les séries</button>
                 </a>
             </div>
+            <strong>Acteur :</strong>
+            <ul>
+                {% for actor in program.actors %}
+                    <li><a href=\"{{ path('show_actor', {'id': actor.id}) }}\">{{ actor.name }} </a></li>
+                {% else %}
+                    <li>Aucun acteur pour cette série</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 
