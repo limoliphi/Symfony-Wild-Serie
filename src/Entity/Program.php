@@ -40,7 +40,7 @@ class Program
     private $poster;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program")
+     * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program", orphanRemoval=true)
      */
     private $seasons;
 

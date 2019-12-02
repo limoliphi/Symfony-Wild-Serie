@@ -16,7 +16,7 @@
                 {% for season in seasons %}
                     <a href="{{ path('wild_season', { 'id': season.id}) }}">
                         <button type="button" class="btn btn-outline-danger">Découvrez la
-                            saison {{ season.id }}</button>
+                            saison {{ season.number }}</button>
                     </a>
                 {% endfor %}
                 <a href="{{ path('wild_index') }}">

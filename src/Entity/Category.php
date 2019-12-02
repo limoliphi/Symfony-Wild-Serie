@@ -41,7 +41,7 @@ class Category
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Program", mappedBy="category",  orphanRemoval=true)
      */
     private $programs;
 
