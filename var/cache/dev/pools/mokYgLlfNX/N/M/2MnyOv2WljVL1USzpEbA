@@ -69,7 +69,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'scale' => 0,
                         'length' => 255,
                         'unique' => false,
-                        'nullable' => false,
+                        'nullable' => true,
                         'precision' => 0,
                         'columnName' => 'poster',
                     ],
