@@ -53,18 +53,30 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'precision' => 0,
                         'columnName' => 'name',
                     ],
+                    'slug' => [
+                        'fieldName' => 'slug',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'slug',
+                    ],
                 ],
             ],
             'fieldNames' => [
                 [
                     'id' => 'id',
                     'name' => 'name',
+                    'slug' => 'slug',
                 ],
             ],
             'columnNames' => [
                 [
                     'id' => 'id',
                     'name' => 'name',
+                    'slug' => 'slug',
                 ],
             ],
             'table' => [

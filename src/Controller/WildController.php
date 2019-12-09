@@ -11,6 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Actor;
+use App\Form\CategoryType;
+
 
 class WildController extends AbstractController
 {
@@ -54,16 +56,13 @@ class WildController extends AbstractController
             throw $this
                 ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
         }
-        $slug = preg_replace(
-            '/-/',
-            ' ', ucwords(trim(strip_tags($slug)), "-")
-        );
+
         $program = $this->getDoctrine()
             ->getRepository(Program::class)
-            ->findOneBy(['title' => mb_strtolower($slug)]);
+            ->findOneBy(['slug' => $slug]);
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program with ' . $slug . ' title, found in program\'s table.'
+                'No program with ' . $slug . ' slug, found in program\'s table.'
             );
         }
 
@@ -101,6 +100,7 @@ class WildController extends AbstractController
         );
         return $this->render('wild/category.html.twig', [
             'programs' => $programs,
+            'category' => $categoryName
         ]);
     }
 
@@ -127,7 +127,7 @@ class WildController extends AbstractController
 
 
     /**
-     * @Route("/episode/{id}", name="wild_episode")
+     * @Route("/episode/{slug}", name="wild_episode")
      * @return Response
      */
     public function showEpisode(Episode $episode): Response
@@ -142,7 +142,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * @Route("/actor/{id}", name="show_actor")
+     * @Route("/actor/{slug}", name="show_actor")
      * @return Response
      */
     public function showActor(Actor $actor): Response

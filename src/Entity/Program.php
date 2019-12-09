@@ -45,9 +45,14 @@ class Program
     private $seasons;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="programs")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", mappedBy="programs", orphanRemoval=true)
      */
     private $actors;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -167,6 +172,18 @@ class Program
             $this->actors->removeElement($actor);
             $actor->removeProgram($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

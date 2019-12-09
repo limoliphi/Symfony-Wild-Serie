@@ -98,7 +98,7 @@ class __TwigTemplate_88447757c48c114c3570b956fac2392263e6e73a33392da49d8321476e7
             </a>
             <a href=\"";
         // line 15
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_replace_filter(twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 15, $this->source); })()), "title", [], "any", false, false, false, 15)), [" " => "-"])]), "html", null, true);
         echo "\">
                 <button class=\"btn btn-primary\">Revenir aux séries</button>
             </a>
@@ -141,7 +141,7 @@ class __TwigTemplate_88447757c48c114c3570b956fac2392263e6e73a33392da49d8321476e7
             <a href=\"{{ path('wild_season', {'id': season.id }) }}\">
                 <button class=\"btn btn-primary\">La liste des épisodes</button>
             </a>
-            <a href=\"{{ path('wild_index') }}\">
+            <a href=\"{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})})}}\">
                 <button class=\"btn btn-primary\">Revenir aux séries</button>
             </a>
 

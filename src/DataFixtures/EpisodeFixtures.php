@@ -4,6 +4,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Episode;
+use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -25,19 +26,21 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i <50; $i++) {
             //on instancie l'objet qui nous interesse
             $episode = new Episode();
+            $episode->setTitle($faker->text);
+            $slugify = new Slugify();
+            $slug = $slugify->generate($episode->getTitle());
+            $episode->setSlug($slug);
             //on set les données qui intéressent, celles de la table episode
             //attention valeur : text et random digit
-            $episode->setTitle($faker->text);
+
             $episode->setNumber($faker->randomDigit);
             $episode->setSynopsis($faker->paragraph);
             //on raccroche les episodes aux saison et on ajoute les donnees de faker à l'objet via $this et getreference, pour le nb saison defini
             $episode->setSeason($this->getReference('season_' . rand(0, 49)));
 
             $manager->persist($episode);
-
         }
         $manager->flush();
-
     }
 
     public function getDependencies()

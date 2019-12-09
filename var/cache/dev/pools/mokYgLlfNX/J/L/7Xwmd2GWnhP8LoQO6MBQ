@@ -83,6 +83,16 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'precision' => 0,
                         'columnName' => 'synopsis',
                     ],
+                    'slug' => [
+                        'fieldName' => 'slug',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'slug',
+                    ],
                 ],
             ],
             'fieldNames' => [
@@ -92,6 +102,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'title' => 'title',
                     'number' => 'number',
                     'synopsis' => 'synopsis',
+                    'slug' => 'slug',
                 ],
             ],
             'columnNames' => [
@@ -101,6 +112,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'title' => 'title',
                     'number' => 'number',
                     'synopsis' => 'synopsis',
+                    'slug' => 'slug',
                 ],
             ],
             'table' => [

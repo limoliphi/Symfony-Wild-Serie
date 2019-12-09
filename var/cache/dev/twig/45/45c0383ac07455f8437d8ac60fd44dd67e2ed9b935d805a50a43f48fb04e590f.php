@@ -96,7 +96,7 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
             echo "            <div>
                 <a href=\"";
             // line 11
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_replace_filter(twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 11)), [" " => "-"])]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["program"], "slug", [], "any", false, false, false, 11)]), "html", null, true);
             echo "\">
                     <h2>";
             // line 12
@@ -173,7 +173,7 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
 
         {% for program in programs %}
             <div>
-                <a href=\"{{ path('wild_show', { 'slug': program.title|lower|replace({' ':'-'})}) }}\">
+                <a href=\"{{ path('wild_show', {'slug': program.slug}) }}\">
                     <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2></a>
                 <p>{{ program.summary }}</p>
             </div>
@@ -187,6 +187,7 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
             <button type=\"button\" class=\"btn btn-secondary\">Ajouter une catégorie</button>
         </a>
     </div>
-{% endblock %}", "wild/index.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/index.html.twig");
+{% endblock %}
+", "wild/index.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/index.html.twig");
     }
 }

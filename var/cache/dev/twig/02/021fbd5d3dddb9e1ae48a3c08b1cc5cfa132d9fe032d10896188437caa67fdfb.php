@@ -119,7 +119,7 @@ class __TwigTemplate_8cf7844500ae309c587338cc48bb9057936bfaa429f0b9e00d93f37d5a7
 
     <a href=\"";
         // line 35
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 35, $this->source); })()), "id", [], "any", false, false, false, 35)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_edit", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new RuntimeError('Variable "episode" does not exist.', 35, $this->source); })()), "slug", [], "any", false, false, false, 35)]), "html", null, true);
         echo "\">edit</a>
 
     ";
@@ -183,7 +183,7 @@ class __TwigTemplate_8cf7844500ae309c587338cc48bb9057936bfaa429f0b9e00d93f37d5a7
 
     <a href=\"{{ path('episode_index') }}\">back to list</a>
 
-    <a href=\"{{ path('episode_edit', {'id': episode.id}) }}\">edit</a>
+    <a href=\"{{ path('episode_edit', {'slug': episode.slug}) }}\">edit</a>
 
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}

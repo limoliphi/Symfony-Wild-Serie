@@ -79,7 +79,7 @@ class __TwigTemplate_725a092b764fd80a6c4efac982c267a931665a8bb7530429dc1a344e106
         foreach ($context['_seq'] as $context["_key"] => $context["episode"]) {
             // line 13
             echo "                <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_episode", ["id" => twig_get_attribute($this->env, $this->source, $context["episode"], "id", [], "any", false, false, false, 13)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_episode", ["slug" => twig_get_attribute($this->env, $this->source, $context["episode"], "slug", [], "any", false, false, false, 13)]), "html", null, true);
             echo "\">
                     <li>Episode ";
             // line 14
@@ -98,7 +98,7 @@ class __TwigTemplate_725a092b764fd80a6c4efac982c267a931665a8bb7530429dc1a344e106
         <div>
             <a href=\"";
         // line 19
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_replace_filter(twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 19, $this->source); })()), "title", [], "any", false, false, false, 19)), [" " => "-"])]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 19, $this->source); })()), "slug", [], "any", false, false, false, 19)]), "html", null, true);
         echo "\">
                 <button type=\"button\" class=\"btn btn-primary\">Retour</button>
             </a>
@@ -140,18 +140,19 @@ class __TwigTemplate_725a092b764fd80a6c4efac982c267a931665a8bb7530429dc1a344e106
         </div>
         <div>
             {% for episode in episodes %}
-                <a href=\"{{ path('wild_episode', {'id': episode.id }) }}\">
+                <a href=\"{{ path('wild_episode', {'slug': episode.slug}) }}\">
                     <li>Episode {{ episode.number }} : {{ episode.title }}</li>
                 </a>
             {% endfor %}
         </div>
         <div>
-            <a href=\"{{ path('wild_show', { 'slug': program.title|lower|replace({' ':'-'})}) }}\">
+            <a href=\"{{ path('wild_show', {'slug': program.slug })}}\">
                 <button type=\"button\" class=\"btn btn-primary\">Retour</button>
             </a>
         </div>
     </div>
 
-{% endblock %}", "wild/season.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/season.html.twig");
+{% endblock %}
+", "wild/season.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/season.html.twig");
     }
 }

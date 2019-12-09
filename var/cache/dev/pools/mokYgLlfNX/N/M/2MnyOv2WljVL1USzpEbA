@@ -73,6 +73,16 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'precision' => 0,
                         'columnName' => 'poster',
                     ],
+                    'slug' => [
+                        'fieldName' => 'slug',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'slug',
+                    ],
                 ],
             ],
             'fieldNames' => [
@@ -81,6 +91,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'title' => 'title',
                     'summary' => 'summary',
                     'poster' => 'poster',
+                    'slug' => 'slug',
                 ],
             ],
             'columnNames' => [
@@ -89,6 +100,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                     'title' => 'title',
                     'summary' => 'summary',
                     'poster' => 'poster',
+                    'slug' => 'slug',
                 ],
             ],
             'table' => [
@@ -158,7 +170,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                         'mappedBy' => 'programs',
                         'inversedBy' => null,
                         'cascade' => [],
-                        'orphanRemoval' => false,
+                        'orphanRemoval' => true,
                         'fetch' => 2,
                         'type' => 8,
                         'isOwningSide' => false,

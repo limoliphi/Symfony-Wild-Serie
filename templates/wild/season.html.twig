@@ -10,13 +10,13 @@
         </div>
         <div>
             {% for episode in episodes %}
-                <a href="{{ path('wild_episode', {'id': episode.id }) }}">
+                <a href="{{ path('wild_episode', {'slug': episode.slug}) }}">
                     <li>Episode {{ episode.number }} : {{ episode.title }}</li>
                 </a>
             {% endfor %}
         </div>
         <div>
-            <a href="{{ path('wild_show', { 'slug': program.title|lower|replace({' ':'-'})}) }}">
+            <a href="{{ path('wild_show', {'slug': program.slug })}}">
                 <button type="button" class="btn btn-primary">Retour</button>
             </a>
         </div>

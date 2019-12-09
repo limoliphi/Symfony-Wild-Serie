@@ -131,7 +131,7 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
         foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
             // line 29
             echo "                    <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_actor", ["id" => twig_get_attribute($this->env, $this->source, $context["actor"], "id", [], "any", false, false, false, 29)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_actor", ["slug" => twig_get_attribute($this->env, $this->source, $context["actor"], "slug", [], "any", false, false, false, 29)]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 29), "html", null, true);
             echo " </a></li>
@@ -203,7 +203,7 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
             <strong>Acteur :</strong>
             <ul>
                 {% for actor in program.actors %}
-                    <li><a href=\"{{ path('show_actor', {'id': actor.id}) }}\">{{ actor.name }} </a></li>
+                    <li><a href=\"{{ path('show_actor',  {'slug': actor.slug}) }}\">{{ actor.name }} </a></li>
                 {% else %}
                     <li>Aucun acteur pour cette série</li>
                 {% endfor %}
@@ -212,6 +212,7 @@ class __TwigTemplate_00155bc22c144c0488a0d32145d2503a3d3165bf71554fc9cb3d0903ffc
     </div>
 
 
-{% endblock %}", "wild/show.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/show.html.twig");
+{% endblock %}
+", "wild/show.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/show.html.twig");
     }
 }
