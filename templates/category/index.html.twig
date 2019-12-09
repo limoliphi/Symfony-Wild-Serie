@@ -1,25 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Catégorie{% endblock %}
 
 {% block body %}
 
-    <div class="container">
-        <div>
-            <h1>Pour créer une catégorie sur Wild Series, c'est ici...</h1>
-            {{ form_start(form) }}
+    <div class="m-5 container">
+        <h1>Pour ajouter un nom de catégorie sur Wild Series, c'est ici...</h1>
+    </div>
+    <div class="m-5 container">
 
-            {{ form_row(form.name) }}
+    {{ form_start(form) }}
 
-            <button class="btn btn-danger">{{ button_label|default('Valider son choix') }}</button>
+    {{ form_row(form.name) }}
 
-            {{ form_end(form) }}
-        </div>
-            <div>
-            <a href="/wild">
-                <button type="button" class="btn btn-primary">Revenir aux séries</button>
-            </a>
-        </div>
+    <button class="btn btn-danger">{{ button_label|default('Valider son choix') }}</button>
+
+    {{ form_end(form) }}
+    </div>
+    <div class="m-5 container">
+        <a href="/wild">
+            <button type="button" class="btn btn-primary">Revenir aux séries</button>
+        </a>
+    </div>
     </div>
 
 {% endblock %}

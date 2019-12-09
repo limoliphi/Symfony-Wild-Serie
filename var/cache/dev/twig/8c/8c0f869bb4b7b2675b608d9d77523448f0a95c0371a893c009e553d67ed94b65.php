@@ -37,22 +37,34 @@ class __TwigTemplate_19548ef4acf05dcc2aaf40bf9fc52c5e50f66cf04ef8c98a52389ca71b1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "wild/navbar.html.twig"));
 
         // line 1
-        echo "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        echo "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
     <a class=\"navbar-brand\" href=\"#\">Wild Series</a>
-    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
     </button>
-    <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-        <ul class=\"navbar-nav\">
+
+    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
+        <ul class=\"navbar-nav mr-auto\">
             <li class=\"nav-item active\">
-                <a class=\"nav-link\" href=\"http://localhost:8000/home/\">Home <span class=\"sr-only\">(current)</span></a>
+                <a class=\"nav-link\" href=\"/home\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"http://localhost:8000/\">Programs</a>
+                <a class=\"nav-link\" href=\"/wild\">Les séries</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/category\">Ajouter une catégorie à Wild Series</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">About</a>
             </li>
         </ul>
+        <form class=\"form-inline my-2 my-lg-0\">
+            <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
+            <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>
+        </form>
     </div>
-</nav>";
+</nav>
+";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -70,21 +82,33 @@ class __TwigTemplate_19548ef4acf05dcc2aaf40bf9fc52c5e50f66cf04ef8c98a52389ca71b1
 
     public function getSourceContext()
     {
-        return new Source("<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        return new Source("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
     <a class=\"navbar-brand\" href=\"#\">Wild Series</a>
-    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
     </button>
-    <div class=\"collapse navbar-collapse\" id=\"navbarNav\">
-        <ul class=\"navbar-nav\">
+
+    <div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
+        <ul class=\"navbar-nav mr-auto\">
             <li class=\"nav-item active\">
-                <a class=\"nav-link\" href=\"http://localhost:8000/home/\">Home <span class=\"sr-only\">(current)</span></a>
+                <a class=\"nav-link\" href=\"/home\">Accueil <span class=\"sr-only\">(current)</span></a>
             </li>
             <li class=\"nav-item\">
-                <a class=\"nav-link\" href=\"http://localhost:8000/\">Programs</a>
+                <a class=\"nav-link\" href=\"/wild\">Les séries</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/category\">Ajouter une catégorie à Wild Series</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"#\">About</a>
             </li>
         </ul>
+        <form class=\"form-inline my-2 my-lg-0\">
+            <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
+            <button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Search</button>
+        </form>
     </div>
-</nav>", "wild/navbar.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/navbar.html.twig");
+</nav>
+", "wild/navbar.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/navbar.html.twig");
     }
 }

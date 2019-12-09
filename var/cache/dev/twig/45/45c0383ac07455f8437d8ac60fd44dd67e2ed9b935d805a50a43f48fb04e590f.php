@@ -56,7 +56,7 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "All programs";
+        echo "Toutes les séries";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -70,75 +70,69 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"container\">
+        echo "    <div class=\"m-5 container-fluid\">
         <h1>Toutes les séries... de Wild Series</h1>
-
-        ";
-        // line 9
+    </div>
+    <div class=\"container-fluid\">
+        <div class=\"d-flex justify-content-around\">
+            <div class=\"d-flex flex-wrap\">
+                ";
+        // line 12
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 9, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 12, $this->source); })()));
         $context['_iterated'] = false;
-        $context['loop'] = [
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        ];
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
         foreach ($context['_seq'] as $context["_key"] => $context["program"]) {
-            // line 10
-            echo "            <div>
-                <a href=\"";
-            // line 11
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["program"], "slug", [], "any", false, false, false, 11)]), "html", null, true);
-            echo "\">
-                    <h2>";
-            // line 12
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 12), "html", null, true);
-            echo " / ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 12), "html", null, true);
-            echo " - Catégorie : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
-            echo "</h2></a>
-                <p>";
             // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 13), "html", null, true);
+            echo "                    <div class=\"card\" style=\"width: 18rem;\">
+                        <img src=\"";
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "poster", [], "any", false, false, false, 14), "html", null, true);
+            echo "\" class=\"card-img-top\" alt=\"film image\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 16), "html", null, true);
+            echo "</h5>
+                            <p class=\"card-text\">";
+            // line 17
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 17), "name", [], "any", false, false, false, 17), "html", null, true);
             echo "</p>
-            </div>
-        ";
+                            <p>";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 18), "html", null, true);
+            echo "</p>
+                            <a href=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => twig_get_attribute($this->env, $this->source, $context["program"], "slug", [], "any", false, false, false, 19)]), "html", null, true);
+            echo "\">Découvrez la série</a>
+                        </div>
+                    </div>
+                ";
             $context['_iterated'] = true;
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
         }
         if (!$context['_iterated']) {
-            // line 16
-            echo "            Aucune série trouvée.
-        ";
+            // line 23
+            echo "                    Aucune série trouvée.
+                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['program'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "        <a href=\"";
+        // line 25
+        echo "            </div>
+        </div>
+    </div>
+    <div class=\"m-5 d-flex justify-content-around\">
+        <a href=\"";
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
         echo "\">
             <button type=\"button\" class=\"btn btn-primary\">Retour à l'accueil</button>
         </a>
         <a href=\"/category\">
-            <button type=\"button\" class=\"btn btn-secondary\">Ajouter une catégorie</button>
+            <button type=\"button\" class=\"btn btn-danger\">Ajouter une catégorie à Wild Series</button>
         </a>
+    </div>
     </div>
 ";
         
@@ -158,34 +152,46 @@ class __TwigTemplate_9e13ba4fb190d4f341cdc600e8c53df833a7eb37719cb6c19c59350a1db
 
     public function getDebugInfo()
     {
-        return array (  134 => 18,  127 => 16,  111 => 13,  103 => 12,  99 => 11,  96 => 10,  78 => 9,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  128 => 29,  122 => 25,  115 => 23,  106 => 19,  102 => 18,  98 => 17,  94 => 16,  89 => 14,  86 => 13,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}All programs{% endblock %}
+{% block title %}Toutes les séries{% endblock %}
 
 {% block body %}
-    <div class=\"container\">
+    <div class=\"m-5 container-fluid\">
         <h1>Toutes les séries... de Wild Series</h1>
-
-        {% for program in programs %}
-            <div>
-                <a href=\"{{ path('wild_show', {'slug': program.slug}) }}\">
-                    <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2></a>
-                <p>{{ program.summary }}</p>
+    </div>
+    <div class=\"container-fluid\">
+        <div class=\"d-flex justify-content-around\">
+            <div class=\"d-flex flex-wrap\">
+                {% for program in programs %}
+                    <div class=\"card\" style=\"width: 18rem;\">
+                        <img src=\"{{ program.poster }}\" class=\"card-img-top\" alt=\"film image\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">{{ program.title }}</h5>
+                            <p class=\"card-text\">{{ program.category.name }}</p>
+                            <p>{{ program.summary }}</p>
+                            <a href=\"{{ path('wild_show', {'slug': program.slug}) }}\">Découvrez la série</a>
+                        </div>
+                    </div>
+                {% else %}
+                    Aucune série trouvée.
+                {% endfor %}
             </div>
-        {% else %}
-            Aucune série trouvée.
-        {% endfor %}
+        </div>
+    </div>
+    <div class=\"m-5 d-flex justify-content-around\">
         <a href=\"{{ path('app_index') }}\">
             <button type=\"button\" class=\"btn btn-primary\">Retour à l'accueil</button>
         </a>
         <a href=\"/category\">
-            <button type=\"button\" class=\"btn btn-secondary\">Ajouter une catégorie</button>
+            <button type=\"button\" class=\"btn btn-danger\">Ajouter une catégorie à Wild Series</button>
         </a>
+    </div>
     </div>
 {% endblock %}
 ", "wild/index.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/wild/index.html.twig");

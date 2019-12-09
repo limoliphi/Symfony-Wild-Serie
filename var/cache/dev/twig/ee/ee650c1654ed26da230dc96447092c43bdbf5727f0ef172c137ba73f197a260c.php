@@ -65,9 +65,9 @@ class __TwigTemplate_9fd3227d0a882b0421465a79aef153c7a92363ad960d6bfafd43edd50be
 ";
         // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 16
+        // line 17
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 19
+        // line 20
         echo "</body>
 </html>
 
@@ -119,14 +119,14 @@ class __TwigTemplate_9fd3227d0a882b0421465a79aef153c7a92363ad960d6bfafd43edd50be
 
     }
 
-    // line 16
+    // line 17
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 17
+        // line 18
         echo "    ";
         echo $this->extensions['Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension']->renderWebpackScriptTags("app");
         echo "
@@ -148,7 +148,7 @@ class __TwigTemplate_9fd3227d0a882b0421465a79aef153c7a92363ad960d6bfafd43edd50be
 
     public function getDebugInfo()
     {
-        return array (  130 => 17,  123 => 16,  111 => 15,  101 => 8,  94 => 7,  81 => 6,  71 => 19,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 7,  51 => 6,  44 => 1,);
+        return array (  130 => 18,  123 => 17,  111 => 15,  101 => 8,  94 => 7,  81 => 6,  71 => 20,  69 => 17,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 7,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -167,7 +167,8 @@ class __TwigTemplate_9fd3227d0a882b0421465a79aef153c7a92363ad960d6bfafd43edd50be
     {% include 'wild/navbar.html.twig' %}
 </header>
 <body>
-{% block body %}{% endblock %}
+{% block body %}
+{% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
 {% endblock %}
