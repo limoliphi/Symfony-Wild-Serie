@@ -1,0 +1,9 @@
+{% extends 'layout_mail.html.twig' %}
+
+{% block body %}
+<div style="background-color: whitesmoke">
+    <div style="color: purple"><h1>Quoi de neuf sur Wild Series ?</h1></div>
+    <div style="color: blue"><h2>Une nouvelle série {{ program.title }} a été ajoutée</h2></div>
+    <a href="http://localhost:8000/wild/show/{{ program.slug }}">Pour la découvrir il suffit de cliquer...</a>
+</div>
+{% endblock %}

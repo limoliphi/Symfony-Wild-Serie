@@ -10,7 +10,8 @@ class Slugify
     //dans wordpress etc., slug = identifiant d'un contenu perso
     //creation d'un service pour generer des slug lors de la creation et/ou edition
 
-    public function generate(string $input) : string {
+    public function generate(string $input) : string
+    {
 
 
         setlocale(LC_ALL, 'fr_FR');
@@ -20,5 +21,4 @@ class Slugify
         $input = trim($input, '-');
         return strtolower($input);
     }
-
 }

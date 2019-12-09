@@ -38,12 +38,12 @@ class __TwigTemplate_dfce9c6ed88e74fb98b8164397a423425069b0d76225db8f51b7930afcb
 
         // line 1
         echo "<form method=\"post\" action=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_delete", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 1, $this->source); })()), "slug", [], "any", false, false, false, 1)]), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 1, $this->source); })()), "id", [], "any", false, false, false, 1)]), "html", null, true);
         echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
     <input type=\"hidden\" name=\"_token\" value=\"";
         // line 3
-        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 3, $this->source); })()), "slug", [], "any", false, false, false, 3))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 3, $this->source); })()), "id", [], "any", false, false, false, 3))), "html", null, true);
         echo "\">
     <button class=\"btn\">Delete</button>
 </form>
@@ -70,9 +70,9 @@ class __TwigTemplate_dfce9c6ed88e74fb98b8164397a423425069b0d76225db8f51b7930afcb
 
     public function getSourceContext()
     {
-        return new Source("<form method=\"post\" action=\"{{ path('program_delete', {'slug': program.slug}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
+        return new Source("<form method=\"post\" action=\"{{ path('program_delete', {'id': program.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_method\" value=\"DELETE\">
-    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ program.slug) }}\">
+    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ program.id) }}\">
     <button class=\"btn\">Delete</button>
 </form>
 ", "program/_delete_form.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/program/_delete_form.html.twig");

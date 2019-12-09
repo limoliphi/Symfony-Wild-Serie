@@ -61,6 +61,7 @@
     <parameter key="kernel.container_class">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="mailer_from">%env(resolve:MAILER_FROM_ADDRESS)%</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -1297,6 +1298,14 @@
         <argument>-128</argument>
       </call>
       <call method="addListener">
+        <argument>Symfony\Component\Mailer\Event\MessageEvent</argument>
+        <argument type="collection">
+          <argument type="service" id="twig.mailer.message_listener"/>
+          <argument>onMessage</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>console.error</argument>
         <argument type="collection">
           <argument type="service" id="maker.console_error_listener"/>
@@ -1495,6 +1504,21 @@
       <argument>false</argument>
       <argument type="service" id="cache.property_access" on-invalid="ignore"/>
       <argument>true</argument>
+    </service>
+    <service id="mailer.mailer" class="Symfony\Component\Mailer\Mailer">
+      <argument type="service" id="mailer.default_transport"/>
+      <argument>null</argument>
+    </service>
+    <service id="mailer.default_transport" class="Symfony\Component\Mailer\Transport\TransportInterface">
+      <argument>%env(MAILER_DSN)%</argument>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>null</argument>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Mailer\Transport" method="fromDsn"/>
+    </service>
+    <service id="mailer.messenger.message_handler" class="Symfony\Component\Mailer\Messenger\MessageHandler">
+      <tag name="messenger.message_handler"/>
+      <argument type="service" id="mailer.default_transport"/>
     </service>
     <service id="mime_types" class="Symfony\Component\Mime\MimeTypes" public="false">
       <call method="setDefault">
@@ -1811,6 +1835,14 @@
       <call method="setName">
         <argument>lint:twig</argument>
       </call>
+    </service>
+    <service id="twig.mailer.message_listener" class="Symfony\Component\Mailer\EventListener\MessageListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument>null</argument>
+      <argument type="service" id="twig.mime_body_renderer"/>
+    </service>
+    <service id="twig.mime_body_renderer" class="Symfony\Bridge\Twig\Mime\BodyRenderer">
+      <argument type="service" id="twig"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor" public="false"/>
     <service id=".1_ServiceLocator~C526ZIA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -2679,6 +2711,13 @@
         <argument key="programRepository" type="service" id="App\Repository\ProgramRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.ydyzfSc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="slugify" type="service" id="App\Service\Slugify"/>
+      </argument>
+    </service>
     <service id=".service_locator.tXoa_ER" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -2704,7 +2743,7 @@
         <argument key="season" type="service" id=".errored..service_locator.ADeF0mv.App\Entity\Season"/>
       </argument>
     </service>
-    <service id=".service_locator.z3yFoWK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.59gFoGM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActorController::delete" type="service" id=".service_locator.K0SvH3w"/>
@@ -2720,7 +2759,7 @@
         <argument key="App\Controller\ProgramController::delete" type="service" id=".service_locator.tXoa_ER"/>
         <argument key="App\Controller\ProgramController::edit" type="service" id=".service_locator.Ggk.SCy"/>
         <argument key="App\Controller\ProgramController::index" type="service" id=".service_locator.58Rml10"/>
-        <argument key="App\Controller\ProgramController::new" type="service" id=".service_locator.cypIcSv"/>
+        <argument key="App\Controller\ProgramController::new" type="service" id=".service_locator.ydyzfSc"/>
         <argument key="App\Controller\ProgramController::show" type="service" id=".service_locator.tXoa_ER"/>
         <argument key="App\Controller\SeasonController::delete" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\SeasonController::edit" type="service" id=".service_locator.ADeF0mv"/>
@@ -2742,7 +2781,7 @@
         <argument key="App\Controller\ProgramController:delete" type="service" id=".service_locator.tXoa_ER"/>
         <argument key="App\Controller\ProgramController:edit" type="service" id=".service_locator.Ggk.SCy"/>
         <argument key="App\Controller\ProgramController:index" type="service" id=".service_locator.58Rml10"/>
-        <argument key="App\Controller\ProgramController:new" type="service" id=".service_locator.cypIcSv"/>
+        <argument key="App\Controller\ProgramController:new" type="service" id=".service_locator.ydyzfSc"/>
         <argument key="App\Controller\ProgramController:show" type="service" id=".service_locator.tXoa_ER"/>
         <argument key="App\Controller\SeasonController:delete" type="service" id=".service_locator.ADeF0mv"/>
         <argument key="App\Controller\SeasonController:edit" type="service" id=".service_locator.ADeF0mv"/>
@@ -2956,12 +2995,12 @@
     <service id="debug.argument_resolver.request.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\RequestValueResolver" public="false"/>
     <service id="debug.argument_resolver.session.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\SessionValueResolver" public="false"/>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.z3yFoWK"/>
+      <argument type="service" id=".service_locator.59gFoGM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.z3yFoWK"/>
+      <argument type="service" id=".service_locator.59gFoGM"/>
     </service>
     <service id=".service_locator.UwRI0uT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -3188,6 +3227,9 @@
     <service id="annotation_reader" alias="annotations.cached_reader"/>
     <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader" public="false"/>
     <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor" public="false"/>
+    <service id="mailer" alias="mailer.mailer"/>
+    <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
+    <service id="Symfony\Component\Mailer\Transport\TransportInterface" alias="mailer.default_transport"/>
     <service id="Twig_Environment" alias="twig" public="false"/>
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
@@ -3204,7 +3246,7 @@
     <service id="doctrine.orm.default_result_cache" alias="doctrine.orm.cache.pool.cache.app" public="false"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine.orm.cache.pool.cache.app" public="false"/>
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.z3yFoWK"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.59gFoGM"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
