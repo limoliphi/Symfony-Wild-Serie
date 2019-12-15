@@ -4,25 +4,23 @@
 
 {% block body %}
 
-    <div class="media">
-        <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
-        <div class="media-body">
-            <div>
-                <h1 class="mt-0">{{ program.title }}</h1>
-                <p>{{ program.summary }}</p>
-                <p>Categorie : {{ program.category.name }}</p>
-            </div>
-            <div>
-                {% for season in seasons %}
-                    <a href="{{ path('wild_season', { 'id': season.id}) }}">
-                        <button type="button" class="btn btn-outline-danger">Découvrez la
-                            saison {{ season.number }}</button>
-                    </a>
-                {% endfor %}
-                <a href="{{ path('wild_index') }}">
-                    <button type="button" class="btn btn-primary">Vers toutes les séries</button>
+<div class="m-5 media">
+    <img class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
+    <div class="media-body">
+        <div class="mt-0 container">
+            <h1>{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie de la série : {{ program.category.name }}</p>
+
+
+            {% for season in seasons %}
+                <a href="{{ path('wild_season', { 'id': season.id}) }}">
+                    <button type="button" class="btn btn-outline-danger">Découvrez la
+                        saison {{ season.number }}</button>
                 </a>
-            </div>
+            {% endfor %}
+        </div>
+        <div class="m-5">
             <strong>Acteur :</strong>
             <ul>
                 {% for actor in program.actors %}
@@ -33,6 +31,11 @@
             </ul>
         </div>
     </div>
+    <div class="m-5">
+        <a href="{{ path('wild_index') }}">
+            <button type="button" class="btn btn-primary">Revenir aux séries</button>
+        </a>
+    </div>
 
 
-{% endblock %}
+    {% endblock %}

@@ -1,8 +1,22 @@
 @import "~bootstrap/scss/bootstrap";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-$primary: blue;
-$secondary: purple;
+
+@mixin primary-title {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+@mixin text {
+    font-family: 'Dancing Script', cursive;
+}
+
+:root {
+    $primary: blue;
+    $secondary: purple;
+}
+
 
 h1 {
+    @include primary-title;
     color: $secondary;
 }

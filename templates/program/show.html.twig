@@ -3,6 +3,7 @@
 {% block title %}Program{% endblock %}
 
 {% block body %}
+<div class="m-5 container">
     <h1>Program</h1>
 
     <strong>Acteur :</strong>
@@ -36,9 +37,11 @@
     </table>
 
 
-    <a href="{{ path('program_index') }}">back to list</a>
+    <a href="{{ path('program_index') }}"><button type="button" class="btn btn-primary">Revenir aux séries</button></a>
 
-    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+    <a href="{{ path('program_edit', {'slug': program.slug}) }}"><button type="button" class="btn btn-secondary">Afficher la série</button></a>
+    <hr/>
 
     {{ include('program/_delete_form.html.twig') }}
+</div>
 {% endblock %}

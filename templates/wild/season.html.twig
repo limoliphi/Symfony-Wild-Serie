@@ -2,10 +2,10 @@
 
 {% block body %}
 
-    <div class="container">
+    <div class="m-5 container">
         <div>
             <h1>Saison {{ season.number }} de {{ program.title }} </h1>
-            <p>Description : {{ season.description }}</p>
+            <p>Résumé : {{ season.description }}</p>
             <h2>Liste des épisodes</h2>
         </div>
         <div>
@@ -15,11 +15,13 @@
                 </a>
             {% endfor %}
         </div>
+        <hr/>
         <div>
-            <a href="{{ path('wild_show', {'slug': program.slug })}}">
-                <button type="button" class="btn btn-primary">Retour</button>
+            <a href="{{ path('wild_show', {'slug': program.slug }) }}">
+                <button type="button" class="btn btn-primary">Revenir à la série</button>
             </a>
         </div>
     </div>
+
 
 {% endblock %}

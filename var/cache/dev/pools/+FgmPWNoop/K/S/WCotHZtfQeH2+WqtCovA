@@ -13,7 +13,7 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                 'App\\Entity\\Season',
             ],
             'inversedBy' => [
-                'episode',
+                'episodes',
             ],
         ],
     ],
