@@ -16,6 +16,45 @@
         <a href="{{ path('wild_show', {'slug': program.title|lower|replace({' ':'-'})}) }}">
             <button class="btn btn-primary">Revenir aux séries</button>
         </a>
+        <div class="m-5 container">
+            <h2>Qu'en avez-vous pensé ?</h2>
 
+            {% if app.user %}
+                <div class="m-5  border-primary">
+                    {{ include('comment/_form.html.twig') }}
+                </div>
+            {% else %}
+                <div>
+                    <p>Vous devez être connecté pour pouvoir laisser un message...</p>
+                    <a href="{{ path('app_login') }}">
+                        <button type="button" class="btn btn-success">Se connecter</button>
+                    </a>
+                </div>
+            {% endif %}
+
+            <hr>
+            <div class="m-5 container">
+                <h3>Vos commentaires :</h3>
+
+                {% for comment in episode.comments %}
+
+                    <div class="card mt-5 mb-5 border-dark">
+                        <div class="card-body d-flex justify-content-between bg-secondary">
+                            <h3>Par {{ comment.author.username }} :</h3>
+                        </div>
+                        <p class="p-2">Votre note : {{ comment.rate }} / 5</p> <br>
+                        <p class="p-2">Votre message : {{ comment.comment }}</p>
+                    </div>
+
+                    {% if is_granted('ROLE_SUBSCRIBER') %}
+                        {% if  (app.user.username == comment.author.username) or (is_granted('ROLE_ADMIN')) %}
+                            {{ include('comment/_delete_form.html.twig') }}
+                        {% endif %}
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
     </div>
+
 {% endblock %}

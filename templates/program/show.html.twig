@@ -3,20 +3,30 @@
 {% block title %}Program{% endblock %}
 
 {% block body %}
-<div class="m-5 container">
-    <h1>Program</h1>
+    <div class="m-5 container">
+        <h1>Program</h1>
+    </div>
+    <div class="m-5 container">
 
-    <strong>Acteur :</strong>
-    <ul>
-        {% for actor in program.actors %}
-            <li>{{ actor.name }} </li>
-        {% else %}
-            <li>Aucun acteur pour cette série</li>
-        {% endfor %}
-    </ul>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('program_edit', { 'slug': program.slug} ) }}">
+                <button type="button" class="btn btn-warning">Éditer la série / Admin</button>
+            </a>
+        {% endif %}
+    </div>
+    <div class="m-5 container">
 
-    <table class="table">
-        <tbody>
+        <strong>Acteur :</strong>
+        <ul>
+            {% for actor in program.actors %}
+                <li>{{ actor.name }} </li>
+            {% else %}
+                <li>Aucun acteur pour cette série</li>
+            {% endfor %}
+        </ul>
+
+        <table class="table">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ program.id }}</td>
@@ -33,15 +43,23 @@
                 <th>Poster</th>
                 <td>{{ program.poster }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class="m-5 container">
 
 
-    <a href="{{ path('program_index') }}"><button type="button" class="btn btn-primary">Revenir aux séries</button></a>
+        <a href="{{ path('program_index') }}">
+            <button type="button" class="btn btn-primary">Revenir aux séries</button>
+        </a>
 
-    <a href="{{ path('program_edit', {'slug': program.slug}) }}"><button type="button" class="btn btn-secondary">Afficher la série</button></a>
+        <a href="{{ path('program_edit', {'slug': program.slug}) }}">
+            <button type="button" class="btn btn-secondary">Afficher la série</button>
+        </a>
+    </div>
     <hr/>
+    <div class="m-5 container">
 
-    {{ include('program/_delete_form.html.twig') }}
-</div>
+        {{ include('program/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

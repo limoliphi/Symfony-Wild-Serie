@@ -142,7 +142,7 @@ class __TwigTemplate_8969f0c88adf1857ba97079686f0d2d7ce1c770cda293542477238bdeb1
         foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
             // line 27
             echo "                    <li><a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("show_actor", ["slug" => twig_get_attribute($this->env, $this->source, $context["actor"], "slug", [], "any", false, false, false, 27)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_actor", ["slug" => twig_get_attribute($this->env, $this->source, $context["actor"], "slug", [], "any", false, false, false, 27)]), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 27), "html", null, true);
             echo " </a></li>
@@ -223,7 +223,7 @@ class __TwigTemplate_8969f0c88adf1857ba97079686f0d2d7ce1c770cda293542477238bdeb1
             <strong>Acteur :</strong>
             <ul>
                 {% for actor in program.actors %}
-                    <li><a href=\"{{ path('show_actor',  {'slug': actor.slug}) }}\">{{ actor.name }} </a></li>
+                    <li><a href=\"{{ path('wild_actor',  {'slug': actor.slug}) }}\">{{ actor.name }} </a></li>
                 {% else %}
                     <li>Aucun acteur pour cette série</li>
                 {% endfor %}

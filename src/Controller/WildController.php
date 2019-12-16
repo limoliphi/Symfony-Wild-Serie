@@ -3,17 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Comment;
+use App\Form\CommentType;
+use App\Repository\CommentRepository;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Entity\Episode;
 use App\Repository\SeasonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Actor;
 use App\Form\CategoryType;
 
 
+/**
+ *
+ * @Route("wild/", name="wild_")
+ */
 class WildController extends AbstractController
 {
     public function showByProgram($program)
@@ -24,7 +32,7 @@ class WildController extends AbstractController
     /**
      * Show all rows from Program's entity
      *
-     * @Route("/", name="wild_index")
+     * @Route("/", name="index")
      * @return Response A response instance
      */
     public function index(): Response
@@ -47,7 +55,7 @@ class WildController extends AbstractController
      * Getting a program with a formatted slug for title
      *
      * @param string $slug The slugger
-     * @Route("wild/show/{slug<^[a-z0-9-]+$>}", defaults={"slug" = null}, name="wild_show")
+     * @Route("show/{slug<^[a-z0-9-]+$>}", defaults={"slug" = null}, name="show")
      * @return Response
      */
     public function show(?string $slug): Response
@@ -76,7 +84,7 @@ class WildController extends AbstractController
 
 
     /**
-     * @Route("wild/category/{categoryName}", name="show_category")
+     * @Route("category/{categoryName}", name="category")
      * @param string $categoryName
      * @return Response
      */
@@ -108,7 +116,7 @@ class WildController extends AbstractController
      * Getting a program with a formatted slug for title
      *
      * @param string $slug The slugger
-     * @Route("wild/season/{id}", name="wild_season")
+     * @Route("season/{id}", name="season")
      * @return Response
      */
     public function showBySeason(?int $id, SeasonRepository $seasonRepository)
@@ -127,22 +135,45 @@ class WildController extends AbstractController
 
 
     /**
-     * @Route("/episode/{slug}", name="wild_episode")
+     * @Route("episode/{slug}", name="episode")
+     * @param Episode $episode
+     * @param Request $request
      * @return Response
      */
-    public function showEpisode(Episode $episode): Response
+    public function showEpisode(Episode $episode, Request $request): Response
     {
         $season = $episode->getSeason();
         $program = $season->getProgram();
+
+        $comment = new Comment();
+        $comments = $episode->getComments();
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $comment->setAuthor($this->getUser());
+            $comment->setEpisode($episode);
+            $comment->setComment($data->getComment());
+            $comment->setRate($data->getRate());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('wild_episode', ['slug' => $episode->getSlug()]);
+        }
         return $this->render('wild/episode.html.twig', [
             'episode' => $episode,
             'program' => $program,
-            'season' => $season
+            'season' => $season,
+            'comment' => $comment,
+            'comments' => $comments,
+            'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/actor/{slug}", name="show_actor")
+     * @Route("actor/{slug}", name="actor")
      * @return Response
      */
     public function showActor(Actor $actor): Response

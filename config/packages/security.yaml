@@ -36,3 +36,15 @@ security:
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/program, roles: ROLE_ADMIN }
+        - { path: ^/season, roles: ROLE_ADMIN }
+        - { path: ^/episode, roles: ROLE_ADMIN }
+        - { path: ^/actor, roles: ROLE_ADMIN }
+        - { path: ^/comment, roles: ROLE_SUBSCRIBER }
+
+
+    #    Pour comprendre : l'utilisateur qui a le ROLE_ADMIN hérite des droits égaux aux SUBSCRIBER et
+    #    des mêmes droits que ceux ayant le ROLE_USER ; C'est en cascade
+    role_hierarchy:
+        ROLE_SUBSCRIBER: ROLE_USER
+        ROLE_ADMIN:  ROLE_SUBSCRIBER

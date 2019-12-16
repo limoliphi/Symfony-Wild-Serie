@@ -85,85 +85,110 @@ class __TwigTemplate_c8d03049ff885b75a23171cdec20a5e896e01ab1c863dbfd7b3c2d15dad
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"m-5 container\">
-    <h1>Program</h1>
+        echo "    <div class=\"m-5 container\">
+        <h1>Program</h1>
+    </div>
+    <div class=\"m-5 container\">
 
-    <strong>Acteur :</strong>
-    <ul>
         ";
         // line 11
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 12
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_edit", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "slug", [], "any", false, false, false, 12)]), "html", null, true);
+            echo "\">
+                <button type=\"button\" class=\"btn btn-warning\">Éditer la série / Admin</button>
+            </a>
+        ";
+        }
+        // line 16
+        echo "    </div>
+    <div class=\"m-5 container\">
+
+        <strong>Acteur :</strong>
+        <ul>
+            ";
+        // line 21
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "actors", [], "any", false, false, false, 11));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 21, $this->source); })()), "actors", [], "any", false, false, false, 21));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["actor"]) {
-            // line 12
-            echo "            <li>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 12), "html", null, true);
+            // line 22
+            echo "                <li>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["actor"], "name", [], "any", false, false, false, 22), "html", null, true);
             echo " </li>
-        ";
+            ";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 14
-            echo "            <li>Aucun acteur pour cette série</li>
-        ";
+            // line 24
+            echo "                <li>Aucun acteur pour cette série</li>
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['actor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 16
-        echo "    </ul>
+        // line 26
+        echo "        </ul>
 
-    <table class=\"table\">
-        <tbody>
+        <table class=\"table\">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>";
-        // line 22
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 22, $this->source); })()), "id", [], "any", false, false, false, 22), "html", null, true);
+        // line 32
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 32, $this->source); })()), "id", [], "any", false, false, false, 32), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Title</th>
                 <td>";
-        // line 26
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 26, $this->source); })()), "title", [], "any", false, false, false, 26), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 36, $this->source); })()), "title", [], "any", false, false, false, 36), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Summary</th>
                 <td>";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 30, $this->source); })()), "summary", [], "any", false, false, false, 30), "html", null, true);
+        // line 40
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 40, $this->source); })()), "summary", [], "any", false, false, false, 40), "html", null, true);
         echo "</td>
             </tr>
             <tr>
                 <th>Poster</th>
                 <td>";
-        // line 34
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 34, $this->source); })()), "poster", [], "any", false, false, false, 34), "html", null, true);
+        // line 44
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 44, $this->source); })()), "poster", [], "any", false, false, false, 44), "html", null, true);
         echo "</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class=\"m-5 container\">
 
 
-    <a href=\"";
-        // line 40
+        <a href=\"";
+        // line 52
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_index");
-        echo "\"><button type=\"button\" class=\"btn btn-primary\">Revenir aux séries</button></a>
+        echo "\">
+            <button type=\"button\" class=\"btn btn-primary\">Revenir aux séries</button>
+        </a>
 
-    <a href=\"";
-        // line 42
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_edit", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 42, $this->source); })()), "slug", [], "any", false, false, false, 42)]), "html", null, true);
-        echo "\"><button type=\"button\" class=\"btn btn-secondary\">Afficher la série</button></a>
+        <a href=\"";
+        // line 56
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("program_edit", ["slug" => twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 56, $this->source); })()), "slug", [], "any", false, false, false, 56)]), "html", null, true);
+        echo "\">
+            <button type=\"button\" class=\"btn btn-secondary\">Afficher la série</button>
+        </a>
+    </div>
     <hr/>
+    <div class=\"m-5 container\">
 
-    ";
-        // line 45
+        ";
+        // line 63
         echo twig_include($this->env, $context, "program/_delete_form.html.twig");
         echo "
-</div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -185,7 +210,7 @@ class __TwigTemplate_c8d03049ff885b75a23171cdec20a5e896e01ab1c863dbfd7b3c2d15dad
 
     public function getDebugInfo()
     {
-        return array (  164 => 45,  158 => 42,  153 => 40,  144 => 34,  137 => 30,  130 => 26,  123 => 22,  115 => 16,  108 => 14,  100 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  189 => 63,  179 => 56,  172 => 52,  161 => 44,  154 => 40,  147 => 36,  140 => 32,  132 => 26,  125 => 24,  117 => 22,  112 => 21,  105 => 16,  97 => 12,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -195,20 +220,30 @@ class __TwigTemplate_c8d03049ff885b75a23171cdec20a5e896e01ab1c863dbfd7b3c2d15dad
 {% block title %}Program{% endblock %}
 
 {% block body %}
-<div class=\"m-5 container\">
-    <h1>Program</h1>
+    <div class=\"m-5 container\">
+        <h1>Program</h1>
+    </div>
+    <div class=\"m-5 container\">
 
-    <strong>Acteur :</strong>
-    <ul>
-        {% for actor in program.actors %}
-            <li>{{ actor.name }} </li>
-        {% else %}
-            <li>Aucun acteur pour cette série</li>
-        {% endfor %}
-    </ul>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href=\"{{ path('program_edit', { 'slug': program.slug} ) }}\">
+                <button type=\"button\" class=\"btn btn-warning\">Éditer la série / Admin</button>
+            </a>
+        {% endif %}
+    </div>
+    <div class=\"m-5 container\">
 
-    <table class=\"table\">
-        <tbody>
+        <strong>Acteur :</strong>
+        <ul>
+            {% for actor in program.actors %}
+                <li>{{ actor.name }} </li>
+            {% else %}
+                <li>Aucun acteur pour cette série</li>
+            {% endfor %}
+        </ul>
+
+        <table class=\"table\">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ program.id }}</td>
@@ -225,17 +260,25 @@ class __TwigTemplate_c8d03049ff885b75a23171cdec20a5e896e01ab1c863dbfd7b3c2d15dad
                 <th>Poster</th>
                 <td>{{ program.poster }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class=\"m-5 container\">
 
 
-    <a href=\"{{ path('program_index') }}\"><button type=\"button\" class=\"btn btn-primary\">Revenir aux séries</button></a>
+        <a href=\"{{ path('program_index') }}\">
+            <button type=\"button\" class=\"btn btn-primary\">Revenir aux séries</button>
+        </a>
 
-    <a href=\"{{ path('program_edit', {'slug': program.slug}) }}\"><button type=\"button\" class=\"btn btn-secondary\">Afficher la série</button></a>
+        <a href=\"{{ path('program_edit', {'slug': program.slug}) }}\">
+            <button type=\"button\" class=\"btn btn-secondary\">Afficher la série</button>
+        </a>
+    </div>
     <hr/>
+    <div class=\"m-5 container\">
 
-    {{ include('program/_delete_form.html.twig') }}
-</div>
+        {{ include('program/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
 ", "program/show.html.twig", "/home/wilder/PhpstormProjects/wild-series/templates/program/show.html.twig");
     }
