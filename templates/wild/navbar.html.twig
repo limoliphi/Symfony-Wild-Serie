@@ -32,8 +32,13 @@
             </ul>
             {% if app.user %}
                 {{ app.user.email }}
+                <a class="nav-link" href="/my-profile">Mon compte</a>
                 <a href="{{ path('app_logout') }}"> Se déconnecter</a>
             {% else %}
+                <div class="mr-3">
+                    <a href="{{ path('app_login') }}"><img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                     alt="avatar image" height="35">
+                </div>
                 <a href="{{ path('app_login') }}"> Se connecter</a>
             {% endif %}
             <li class="nav-item">

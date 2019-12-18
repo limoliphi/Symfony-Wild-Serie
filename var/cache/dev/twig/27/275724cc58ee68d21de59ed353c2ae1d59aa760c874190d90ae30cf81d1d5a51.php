@@ -79,30 +79,39 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
             echo "                ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "email", [], "any", false, false, false, 34), "html", null, true);
             echo "
+                <a class=\"nav-link\" href=\"/my-profile\">Mon compte</a>
                 <a href=\"";
-            // line 35
+            // line 36
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\"> Se déconnecter</a>
             ";
         } else {
-            // line 37
-            echo "                <a href=\"";
+            // line 38
+            echo "                <div class=\"mr-3\">
+                    <a href=\"";
+            // line 39
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\"><img src=\"https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg\" class=\"rounded-circle z-depth-0\"
+                     alt=\"avatar image\" height=\"35\">
+                </div>
+                <a href=\"";
+            // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"> Se connecter</a>
             ";
         }
-        // line 39
+        // line 44
         echo "            <li class=\"nav-item\">
                 ";
-        // line 40
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 40, $this->source); })()), "user", [], "any", false, false, false, 40)) {
-            // line 41
+        // line 45
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 45, $this->source); })()), "user", [], "any", false, false, false, 45)) {
+            // line 46
             echo "                    <p class=\"align-self-center\" style=\"color: lightgray;\">Bienvenue ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 41, $this->source); })()), "user", [], "any", false, false, false, 41), "username", [], "any", false, false, false, 41), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 46, $this->source); })()), "user", [], "any", false, false, false, 46), "username", [], "any", false, false, false, 46), "html", null, true);
             echo " !</p>
                 ";
         }
-        // line 43
+        // line 48
         echo "            </li>
 
         </div>
@@ -129,7 +138,7 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
 
     public function getDebugInfo()
     {
-        return array (  106 => 43,  100 => 41,  98 => 40,  95 => 39,  89 => 37,  84 => 35,  79 => 34,  77 => 33,  43 => 1,);
+        return array (  115 => 48,  109 => 46,  107 => 45,  104 => 44,  99 => 42,  93 => 39,  90 => 38,  85 => 36,  79 => 34,  77 => 33,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -168,8 +177,13 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
             </ul>
             {% if app.user %}
                 {{ app.user.email }}
+                <a class=\"nav-link\" href=\"/my-profile\">Mon compte</a>
                 <a href=\"{{ path('app_logout') }}\"> Se déconnecter</a>
             {% else %}
+                <div class=\"mr-3\">
+                    <a href=\"{{ path('app_login') }}\"><img src=\"https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg\" class=\"rounded-circle z-depth-0\"
+                     alt=\"avatar image\" height=\"35\">
+                </div>
                 <a href=\"{{ path('app_login') }}\"> Se connecter</a>
             {% endif %}
             <li class=\"nav-item\">
