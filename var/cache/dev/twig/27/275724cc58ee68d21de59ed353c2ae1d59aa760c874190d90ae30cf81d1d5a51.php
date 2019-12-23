@@ -79,8 +79,8 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
             echo "                ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 34, $this->source); })()), "user", [], "any", false, false, false, 34), "email", [], "any", false, false, false, 34), "html", null, true);
             echo "
-                <a class=\"nav-link\" href=\"/my-profile\">Mon compte</a>
-                <a href=\"";
+                <a class=\"mr-5 nav-link\" href=\"/my-profile\">Mon compte</a>
+                <a class=\"mr-5 link-test\" href=\"";
             // line 36
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\"> Se déconnecter</a>
@@ -93,25 +93,26 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"><img src=\"https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg\" class=\"rounded-circle z-depth-0\"
                      alt=\"avatar image\" height=\"35\">
+                    </a>
                 </div>
                 <a href=\"";
-            // line 42
+            // line 43
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\"> Se connecter</a>
             ";
         }
-        // line 44
+        // line 45
         echo "            <li class=\"nav-item\">
                 ";
-        // line 45
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 45, $this->source); })()), "user", [], "any", false, false, false, 45)) {
-            // line 46
+        // line 46
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 46, $this->source); })()), "user", [], "any", false, false, false, 46)) {
+            // line 47
             echo "                    <p class=\"align-self-center\" style=\"color: lightgray;\">Bienvenue ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 46, $this->source); })()), "user", [], "any", false, false, false, 46), "username", [], "any", false, false, false, 46), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "user", [], "any", false, false, false, 47), "username", [], "any", false, false, false, 47), "html", null, true);
             echo " !</p>
                 ";
         }
-        // line 48
+        // line 49
         echo "            </li>
 
         </div>
@@ -138,7 +139,7 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
 
     public function getDebugInfo()
     {
-        return array (  115 => 48,  109 => 46,  107 => 45,  104 => 44,  99 => 42,  93 => 39,  90 => 38,  85 => 36,  79 => 34,  77 => 33,  43 => 1,);
+        return array (  116 => 49,  110 => 47,  108 => 46,  105 => 45,  100 => 43,  93 => 39,  90 => 38,  85 => 36,  79 => 34,  77 => 33,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -177,12 +178,13 @@ class __TwigTemplate_c6e65c7826486d0aa88161e49e933df0e36b6a3af2cc911cc0a3d567575
             </ul>
             {% if app.user %}
                 {{ app.user.email }}
-                <a class=\"nav-link\" href=\"/my-profile\">Mon compte</a>
-                <a href=\"{{ path('app_logout') }}\"> Se déconnecter</a>
+                <a class=\"mr-5 nav-link\" href=\"/my-profile\">Mon compte</a>
+                <a class=\"mr-5 link-test\" href=\"{{ path('app_logout') }}\"> Se déconnecter</a>
             {% else %}
                 <div class=\"mr-3\">
                     <a href=\"{{ path('app_login') }}\"><img src=\"https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg\" class=\"rounded-circle z-depth-0\"
                      alt=\"avatar image\" height=\"35\">
+                    </a>
                 </div>
                 <a href=\"{{ path('app_login') }}\"> Se connecter</a>
             {% endif %}
