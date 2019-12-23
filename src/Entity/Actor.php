@@ -85,6 +85,7 @@ class Actor
     {
         return $this->slug;
     }
+
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;

@@ -21,11 +21,13 @@ class ProgramController extends AbstractController
 {
     /**
      * @Route("/", name="program_index", methods={"GET"})
+     * @param ProgramRepository $programRepository
+     * @return Response
      */
     public function index(ProgramRepository $programRepository): Response
     {
         return $this->render('program/index.html.twig', [
-            'programs' => $programRepository->findAll(),
+            'programs' => $programRepository->findAllWithCategoriesAndActors(),
         ]);
     }
 
