@@ -49,6 +49,8 @@ class ProgramController extends AbstractController
             $entityManager->persist($program);
             $entityManager->flush();
 
+            $this->addFlash('success', 'A new program has been created');
+
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to($this->getParameter('mailer_from'))
@@ -91,6 +93,8 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'The program has been edited');
+
             return $this->redirectToRoute('program_index');
         }
 
@@ -109,6 +113,8 @@ class ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'The program has been deleted');
         }
 
         return $this->redirectToRoute('program_index');

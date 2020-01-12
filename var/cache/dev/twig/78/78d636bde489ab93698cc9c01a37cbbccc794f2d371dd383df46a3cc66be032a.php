@@ -89,7 +89,7 @@ class __TwigTemplate_11ac9c95561d01292513db230786455fff94afae20a1562d709c71c7b71
         <h1>Toutes les saisons</h1>
         <div class=\"m-5\"><a href=\"";
         // line 8
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("episode_new");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("season_new");
         echo "\">
                 <button type=\"button\" class=\"btn btn-primary\">Ajouter une saison</button>
             </a></div>
@@ -200,7 +200,7 @@ class __TwigTemplate_11ac9c95561d01292513db230786455fff94afae20a1562d709c71c7b71
 {% block body %}
     <div class=\"m-5 container\">
         <h1>Toutes les saisons</h1>
-        <div class=\"m-5\"><a href=\"{{ path('episode_new') }}\">
+        <div class=\"m-5\"><a href=\"{{ path('season_new') }}\">
                 <button type=\"button\" class=\"btn btn-primary\">Ajouter une saison</button>
             </a></div>
 
